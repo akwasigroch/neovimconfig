@@ -25,8 +25,6 @@ set smartcase
 "remove highlight of last search by Esc
 nnoremap <silent> <Esc> :noh<CR>:<backspace>
 
-" set shell to zsh
-set shell=/bin/zsh
 
 " exit insert mode in terminal with Esc
 tnoremap <Esc> <C-\><C-n>
