@@ -4,10 +4,13 @@
 
 ```
 mkdir ~/nvim
-cd ~/nvim
-wget https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage
+wget https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage -P ~/nvim
 ```
-2. Install vim-plug https://github.com/junegunn/vim-plug
+2. Add appropriate access permissions
+```
+chmod u+x ~/nvim/nvim.appimage
+```
+3. Install vim-plug https://github.com/junegunn/vim-plug
 
 ```
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -23,13 +26,15 @@ cp init.vim ~/.config/nvim
 
 ```
 echo 'alias vim="~/nvim/nvim.appimage"' >> ~/.bashrc
+source ~/.bashrc
 ```
-5. Install pynvim and jedi python packages
-   ```
-   pip install jedi
-   pip install pynvim
-   ```
+5. Install pynvim and jedi python packages (preferably in separate env)
+```
+pip install -U jedi pynvim
+```
 6. Install all plugins
-   ```
-   vim -c PlugInstall -c qall
-   vim -c UpdateRemotePlugins -c qall 
+```
+vim -c PlugInstall -c qall
+vim -c UpdateRemotePlugins -c qall 
+```
+7. Your vim is ready to use
