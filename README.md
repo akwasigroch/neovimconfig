@@ -1,6 +1,22 @@
-# Installation instruction
+## Available functionality and shortcuts
 
-1. Create nvim directory and download latest neovim appimage from https://github.com/neovim/neovim/releases
+- `jj` - escape insert mode
+- changed standard leader key `\` to `Space`
+- `Ctrl+N` show directory tree
+- `F12` toggle terminal, `F10` save the current file and execute
+- Python motions and text object e.g. whole function `af` or go to next function `]m`, more on https://github.com/jeetsukumaran/vim-pythonsense
+- autocompletion with deoplete-jedi, Tab key can be used to choose completions
+- code navigation provided by jedi-vim, e.g. go to definition `Space-d`, show documentation `Shift-K`, more on 
+https://github.com/davidhalter/jedi-vim
+- vim-sorround for easy deletion, adding and changing of "sorroundings"  https://github.com/tpope/vim-surround
+- vim-commentary https://github.com/tpope/vim-commentary
+- vim-exchange for swapping text https://github.com/tommcdo/vim-exchange
+- vim-easymioton - activate with `s` in normal mode, line motions activated with `Space-j` and `Space-k` https://github.com/easymotion/vim-easymotion
+
+
+## Installation instruction
+
+1. Create nvim directory and download the latest neovim appimage from https://github.com/neovim/neovim/releases
 
 ```
 mkdir ~/nvim
@@ -16,7 +32,7 @@ chmod u+x ~/nvim/nvim.appimage
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
-3. Create configuration directory and copy configuration file
+3. Create a configuration directory and copy the configuration file
    
 ```
 mkdir ~/.config/nvim
