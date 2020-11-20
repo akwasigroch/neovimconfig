@@ -1,10 +1,15 @@
+
+![alt text](screen.png)
+
 ## Available functionality and shortcuts
 
 - `jj` - escape insert mode
 - changed standard leader key `\` to `Space`
 - `Ctrl+N` show directory tree
 - `F12` toggle terminal, `F10` save the current file and execute
+- windows navigation with `Ctrl-j`, `Ctrl-k`, `Ctrl-h`, and `Ctrl-l`
 - Python motions and text object e.g. whole function `af` or go to next function `]m`, more on https://github.com/jeetsukumaran/vim-pythonsense
+- Python-aware code folding
 - autocompletion with deoplete-jedi, Tab key can be used to choose completions https://github.com/deoplete-plugins/deoplete-jedi 
 - code navigation provided by jedi-vim, e.g. go to definition `Space-d`, show documentation `Shift-K`, more on 
 https://github.com/davidhalter/jedi-vim
