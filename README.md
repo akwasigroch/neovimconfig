@@ -13,6 +13,8 @@
 - autocompletion with deoplete-jedi, Tab key can be used to choose completions https://github.com/deoplete-plugins/deoplete-jedi 
 - code navigation provided by jedi-vim, e.g. go to definition `Space-d`, show documentation `Shift-K`, more on 
 https://github.com/davidhalter/jedi-vim
+- Git integration https://github.com/tpope/vim-fugitive
+- Git gutter - go to next previous change `]c`, `[`, <Space-h-p> - hunk preview, <Space-h-s> hunk stage, <Space-h-u> hunk undo https://github.com/airblade/vim-gitgutter
 - vim-sorround for easy deletion, adding and changing of "sorroundings"  https://github.com/tpope/vim-surround
 - vim-commentary https://github.com/tpope/vim-commentary
 - vim-exchange for swapping text https://github.com/tommcdo/vim-exchange
