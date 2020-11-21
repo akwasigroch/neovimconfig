@@ -36,7 +36,7 @@ nnoremap <SPACE> <Nop>
 " disable displaying mode in command line (mode is displayed in airline)
 set noshowmode
 
-
+set updatetime=100 " faster git gutter display
 
 call plug#begin()
 Plug 'preservim/nerdtree' " project tree (open with CTRL+N)
@@ -61,6 +61,7 @@ Plug 'kassio/neoterm' " terminal
 Plug 'ervandew/supertab' " tab completion 
 Plug 'tpope/vim-repeat' " repeat commands in surround
 Plug 'patstockwell/vim-monokai-tasty' " colorscheme
+Plug 'airblade/vim-gitgutter' " vim gutter
 
 
 call plug#end()
