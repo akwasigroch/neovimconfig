@@ -3,7 +3,7 @@
 
 ## Available functionality and shortcuts
 
-- `jj` - escape insert mode
+- `jj` - escape insert mod
 - changed standard leader key `\` to `Space`
 - `Ctrl+N` show directory tree
 - `F12` toggle terminal, `F10` save the current file and execute
