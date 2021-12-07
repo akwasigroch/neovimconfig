@@ -6,6 +6,9 @@ set number
 set relativenumber
 set mouse=a
 
+" allow fuzzy finding
+set path+=**
+
 " allow buffer switch
 set hidden
 
@@ -26,9 +29,6 @@ set smartcase
 nnoremap <silent> <Esc> :noh<CR>:<backspace>
 
 
-" exit insert mode in terminal with Esc
-tnoremap <Esc> <C-\><C-n>
-
 " change leader key (\) to space
 let mapleader=" "
 nnoremap <SPACE> <Nop>
@@ -39,13 +39,10 @@ set noshowmode
 set updatetime=100 " faster git gutter display
 
 call plug#begin()
-Plug 'preservim/nerdtree' " project tree (open with CTRL+N)
-Plug 'Xuyuanp/nerdtree-git-plugin' " git status in project tree
 Plug 'vim-airline/vim-airline' " airline 
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " use git from vim
 Plug 'jmcantrell/vim-virtualenv' " integration with virtualenvs
-Plug 'mhinz/vim-startify' " starting window
 Plug 'davidhalter/jedi-vim' " code understanding
 Plug 'jeetsukumaran/vim-pythonsense' " better python motions (e.g. go to next class, go to next function)
 Plug 'Vimjas/vim-python-pep8-indent' " python indendation 
@@ -57,46 +54,12 @@ Plug 'Shougo/echodoc.vim' " show function signatures
 Plug 'easymotion/vim-easymotion' " easier code navigation 
 Plug 'tpope/vim-commentary' " easy coment adding 
 Plug 'tommcdo/vim-exchange' " better swaping of words, lines etx
-Plug 'kassio/neoterm' " terminal 
 Plug 'ervandew/supertab' " tab completion 
 Plug 'tpope/vim-repeat' " repeat commands in surround
 Plug 'patstockwell/vim-monokai-tasty' " colorscheme
 Plug 'airblade/vim-gitgutter' " vim gutter
-
-
 call plug#end()
 
-
-" start NERDTree plugin with CTRL+N shortcut
-map <C-n> :NERDTreeToggle<CR>
-"
-"" close vim, if NERDTree is the only window open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" don;t show these file types
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-
-" Enable folder icons
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
-
-" Fix directory colors
-highlight! link NERDTreeFlags NERDTreeDir
-
-" Remove expandable arrows in nerdtree
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
-let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
-let NERDTreeDirArrowExpandable = "\u00a0"
-let NERDTreeDirArrowCollapsible = "\u00a0"
-let NERDTreeNodeDelimiter = "\x07"
-
-" Autorefresh on tree focus
-function! NERDTreeRefresh()
-    if &filetype == "nerdtree"
-        silent exe substitute(mapcheck("R"), "<CR>", "", "")
-    endif
-endfunction
-autocmd BufEnter * call NERDTreeRefresh()
 
 " set airline theme, list of themes  https://github.com/vim-airline/vim-airline/wiki/Screenshots
 let g:airline_powerline_fonts = 0
@@ -122,14 +85,14 @@ let g:jedi#squelch_py_warning = 1
 " don't load deoplete if python is not installed
 if has('python3')
 
-  " enable deoplete at startup
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#sources#jedi#show_docstring = 0
-  
-  
-  " show signature of functions 
-  let g:echodoc#enable_at_startup=1
-  let g:echodoc#type = 'virtual'
+" enable deoplete at startup
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 0
+
+
+" show signature of functions 
+let g:echodoc#enable_at_startup=1
+let g:echodoc#type = 'virtual'
 
 endif
 
@@ -154,33 +117,12 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
 
-" neoterm options
-let g:neoterm_default_mod = 'botright'
-let g:neoterm_size = 10
-let g:neoterm_fixedsize = 1
-let g:neoterm_autoscroll=1
-
-" open terminal at startup enable toggling terminal with f12
-map <silent> <F12> :Ttoggle <CR>
-nmap <silent> <F10> :call ExecutePythonScript()<CR>
-function ExecutePythonScript()
-  if &filetype ==? 'python'
-    write
-    Topen 
-    T python %
-  else 
-    echo "No Python script"
-  endif
-endfunction
-
 " make super tab scroll suggestion from top to bottom
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " smart case easy motion search
 let g:EasyMotion_smartcase = 1
-
-" start easy-motion with s key
-nmap s <Plug>(easymotion-overwin-f2)
+let g:jedi#goto_stubs_command = ""
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
